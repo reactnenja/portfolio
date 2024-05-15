@@ -86,3 +86,32 @@ body {
             rgba(0, 0, 0, 0.05) 0px 4px 6px -2px !important;
     }
 }
+
+.about__content {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px;
+    border-radius: 10px;
+    transition: all 0.7s;
+    transform: scale(0.9);
+    background: #f7f7f7;
+    .about__content__text {
+        padding: 10px;
+        .about__content__left {
+            p {
+                font-size: 18px;
+                margin-bottom: 10px;
+                border: 2px solid #000000 !important;
+                padding: 24px;
+                border-radius: 20px 20px 20px 0;
+                color: #000000 !important;
+                transition: all 0.7s;
+                line-height: 30px;
+                &:hover {
+                    // transform: scale(1.1);
+                    transform: translate(-550px -550px);
+                    cursor: pointer;
+                    box-shadow: 20px 20px 0px #000000;
+                }
+            }
+        }
+    }
+}

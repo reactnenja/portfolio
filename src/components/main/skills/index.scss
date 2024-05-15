@@ -1,21 +1,22 @@
 .skills {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     width: 100%;
     height: auto;
     background-color: hsla(177, 100%, 14%, 0.389);
     padding: 70px 0px;
     backdrop-filter: blur(15px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 25px 55px;
     gap: 20px;
 
     .skills__title {
         font-size: 50px;
+        text-align: left;
         color: #ffffff;
+        margin-bottom: 12px;
     }
-
+    p {
+        margin-bottom: 25px;
+    }
     .skills__content {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
