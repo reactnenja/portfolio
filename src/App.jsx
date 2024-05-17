@@ -1,12 +1,14 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import Header from "./components/header";
+import Main from "./components/main";
+
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 const App = () => {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-            </Routes>
-        </Router>
+        <div>
+            <Header />
+            <Main />
+        </div>
     );
 };
 

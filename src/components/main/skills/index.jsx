@@ -53,9 +53,7 @@ const Skills = () => {
                     }}
                 />
             </h2>
-
             <p>Here are some of my skills</p>
-
             <div className="skills__content">
                 <div
                     className="skills__content__item"

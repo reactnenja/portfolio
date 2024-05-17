@@ -30,7 +30,7 @@ const About = () => {
 
                 <div className="about__content__text">
                     <div className="about__content__left">
-                        <p>
+                        <p className="rotate-scale-up">
                             <h3>About Me</h3>
                             Hello, I’m Ulugbek. I recently completed my
                             education in frontend development and have a deep
@@ -40,7 +40,7 @@ const About = () => {
                             essential technologies such as HTML, CSS, and
                             JavaScript.
                         </p>
-                        <p>
+                        <p className="rotate-scale-up">
                             In my work, I utilize modern technologies like
                             React, Redux, and Zustand. I also enjoy using
                             Tailwind CSS to make my websites visually appealing
@@ -48,7 +48,7 @@ const About = () => {
                             are not only functional but also aesthetically
                             pleasing and user-friendly.
                         </p>
-                        <p>
+                        <p className="rotate-scale-up">
                             Responsive design ensures that my websites look and
                             perform perfectly on all devices. Creating intuitive
                             and easy-to-use interfaces enhances the user
@@ -57,7 +57,7 @@ const About = () => {
                             performance. Ensuring that websites are accessible
                             to everyone is also a key priority.
                         </p>
-                        <p>
+                        <p className="rotate-scale-up">
                             During my learning journey, I have worked on various
                             projects. My personal portfolio website showcases my
                             skills and projects. I have developed an e-commerce
@@ -66,7 +66,7 @@ const About = () => {
                             developers, featuring daily news and video
                             tutorials.
                         </p>
-                        <p>
+                        <p className="rotate-scale-up">
                             I am eager to take on new challenges and contribute
                             to exciting projects. I plan to explore advanced
                             topics such as server-side rendering, progressive
@@ -74,7 +74,7 @@ const About = () => {
                             also passionate about sharing my knowledge and plan
                             to create video tutorials and blog posts.
                         </p>
-                        <p>
+                        <p className="rotate-scale-up">
                             I am open to new opportunities and collaborations.
                             If you have a project in mind or want to discuss
                             frontend development, feel free to reach out to me.

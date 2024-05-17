@@ -16,10 +16,10 @@ const Hero = () => {
                             <TypeIt
                                 options={{
                                     strings: [
-                                        "Hi, I'm Ulugbek Eshnazarov",
-                                        "Frontend React Developer",
+                                        "I'm Ulugbek Eshnazarov",
+                                        "React Developer",
                                         "My interests",
-                                        `JavaScript, React,     Nodejs!`,
+                                        `JavaScript, React, Nodejs!`,
                                         `Python FastAPI!`,
                                         `Rust!`,
                                     ],
