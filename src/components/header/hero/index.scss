@@ -1,75 +1,112 @@
 .hero {
+    padding: 240px 0px;
     width: 100%;
-    height: 100vh;
-    padding-top: 120px;
+    height: auto;
     .hero__content {
+        width: 100%;
+        height: auto;
+        backdrop-filter: blur(15px);
         display: flex;
-        padding: 25px 10px;
         justify-content: space-between;
         align-items: center;
-        gap: 50px;
-        flex-wrap: wrap;
-        height: auto;
-        padding: 0px 50px;
-        border-radius: 20px;
+        padding: 20px 45px;
+        background: transparent;
         transition: all 0.7s;
         &:hover {
-            backdrop-filter: blur(45px);
+            transform: scale(1.1);
+            background-color: hsla(177, 100%, 14%, 0.389);
         }
-        .hero__content__text {
-            &__subtitle {
-                font-size: 25px;
-                margin-bottom: 30px;
-                color: #ffffff !important;
-                border-radius: 8px;
-            }
-            &__title {
-                font-size: 40px;
-                width: 100%;
-                margin-bottom: 30px;
-                color: #ffffff !important;
-                padding: 10px 0px;
-                border-radius: 8px;
+        .hero__title {
+            text-align: left;
+            h1 {
+                font-size: 38px;
+                line-height: 46px;
+                color: #fff;
+                margin-bottom: 25px;
+                left: 20px;
             }
 
-            &__btn {
-                padding: 10px 20px;
-                border-radius: 6px;
-                border: none;
-                background: #ff8906;
-                color: white;
-                font-size: 18px;
-                font-weight: 500;
-                cursor: pointer;
+            .hero__subtitle {
+                font-size: 24px;
+                line-height: 30px;
+                color: #ffffff;
+                margin-top: 10px;
+                text-align: left !important;
+                margin-bottom: 25px;
             }
+
             .socails {
                 display: flex;
-                gap: 20px;
+                gap: 25px;
+                color: #ffffff;
                 a {
-                    font-size: 45px;
-                    color: rgb(255, 255, 255);
+                    color: #ffffff;
+                    font-size: 48px;
                     transition: all 0.7s;
+                    i {
+                        color: #04502d;
+                        font-size: 24px;
+                    }
+
                     &:hover {
                         color: #ff8906;
-                        cursor: pointer;
-                        transform: scale(1.2);
+                        i {
+                            color: #ff8906;
+                        }
                     }
                 }
             }
         }
         .hero__content__image {
-            width: 500px;
-            height: 500px;
-            border-radius: 20px;
+            height: 100%;
+            padding: 20px;
             img {
-                width: 100%;
-                height: 500px;
-                border-radius: 20px;
-                transition: all 0.7s;
-                mix-blend-mode: darken;
-                &:hover {
-                    cursor: pointer;
-                    transform: scale(1.1);
+                width: 400px;
+                height: 400px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        .hero__content {
+            .hero__title {
+                h1 {
+                    font-size: 40px;
+                }
+                .hero__subtitle {
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .hero {
+        .hero__content {
+            .hero__title {
+                h1 {
+                    font-size: 35px;
+                }
+                .hero__subtitle {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .hero {
+        .hero__content {
+            .hero__title {
+                h1 {
+                    font-size: 25px;
+                }
+                .hero__subtitle {
+                    font-size: 20px;
                 }
             }
         }

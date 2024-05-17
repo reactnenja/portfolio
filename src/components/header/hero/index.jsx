@@ -1,27 +1,22 @@
-import { FaGithub, FaLinkedinIn, FaTelegram } from "react-icons/fa";
-import { IoLogoYoutube } from "react-icons/io";
+import { BsTelegram, BsYoutube } from "react-icons/bs";
+import { CiLinkedin } from "react-icons/ci";
+import { FaGithub, FaInstagram } from "react-icons/fa";
 import TypeIt from "typeit-react";
-import HeroImages from "../../../assets/hero__logo.png";
+import Logo from "../../../assets/hero__logo.png";
 import "./index.scss";
 const Hero = () => {
     return (
-        <section className="hero" id="hero">
+        <section className="hero">
             <div className="container">
                 <div className="hero__content">
-                    <div className="hero__content__text">
-                        <p className="hero__content__text__subtitle">
-                            I'm a Frontend Developer
-                        </p>
-                        <h1 className="hero__content__text__title">
+                    <div className="hero__title">
+                        <h1>
                             <TypeIt
                                 options={{
                                     strings: [
-                                        "I'm Ulugbek Eshnazarov",
-                                        "React Developer",
-                                        "My interests",
-                                        `JavaScript, React, Nodejs!`,
-                                        `Python FastAPI!`,
-                                        `Rust!`,
+                                        "My name is Ulugbek, I am 21 years old",
+                                        "I am a frontend developer",
+                                        "i love programming!",
                                     ],
                                     speed: 100,
                                     waitUntilVisible: true,
@@ -31,45 +26,53 @@ const Hero = () => {
                                     startDelay: 1000,
                                     breakLines: false,
                                     nextStringDelay: 3000,
-                                    onFinished: () => {
-                                        console.log("finished");
-                                    },
                                 }}
                             />
                         </h1>
+                        <p className="hero__subtitle">
+                            I am a frontend developer
+                        </p>
                         <div className="socails">
                             <a
-                                href="https://github.com/ulugbekeshnazarov"
+                                href="https://github.com/reactnenja"
                                 target="_blank"
                                 rel="noreferrer"
                             >
                                 <FaGithub />
                             </a>
                             <a
-                                href="https://www.linkedin.com/in/ulugbek-eshnazarov/"
+                                href="https://www.t.me/ulugbekeshnazarovuz"
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                <FaLinkedinIn />
+                                <BsTelegram />
                             </a>
                             <a
-                                href="https://t.me/ulugbekeshnazarov"
+                                href="https://www.youtube.com/ulugbekeshnazarovuz"
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                <FaTelegram />
+                                <BsYoutube />
                             </a>
                             <a
-                                href="https://youtube.com/c/ulugbekeshnazarovuz"
+                                href="https://www.linkedin.com/in/ulugbekeshnazarov/"
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                <IoLogoYoutube />
+                                <CiLinkedin />
+                            </a>
+                            <a
+                                href="https://www.instagram.com/ulugbekeshnazarovuz"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <FaInstagram />
                             </a>
                         </div>
                     </div>
+
                     <div className="hero__content__image">
-                        <img src={HeroImages} alt="" />
+                        <img src={Logo} alt="" />
                     </div>
                 </div>
             </div>
