@@ -9,6 +9,26 @@ const Navbar = () => {
         () => localStorage.getItem("theme") === "dark"
     );
 
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const position = window.scrollY;
+            setScrollPosition(position);
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    const navbarStyle = {
+        backgroundColor:
+            scrollPosition > 100 ? "hsla(177, 100%, 14%, 0.389)" : "", // 100 scroll qilgandan keyin fon rangini o'zgartirish
+    };
+
     useEffect(() => {
         if (isDark) {
             document.body.classList.remove("light");
@@ -25,7 +45,7 @@ const Navbar = () => {
         setIsDark(!isDark);
     };
     return (
-        <nav className="navbar">
+        <nav className="navbar" style={navbarStyle}>
             <div className="container">
                 <div className="navigation">
                     <a href="#" className="logo__link">
