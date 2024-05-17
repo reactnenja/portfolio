@@ -14,7 +14,7 @@ const Hero = () => {
                             <TypeIt
                                 options={{
                                     strings: [
-                                        "My name is Ulugbek, I am 21 years old",
+                                        "My name is Ulugbek, I am 23 years old",
                                         "I am a frontend developer",
                                         "i love programming!",
                                     ],
