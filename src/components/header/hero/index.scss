@@ -13,7 +13,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-direction: row;
         gap: 20px;
         width: 100%;
         .layout__left {
@@ -105,12 +104,24 @@
 @media screen and (max-width: 768px) {
     .hero {
         .layout {
+            flex-direction: column;
             .layout__left {
                 .hero__title {
                     font-size: 30px;
                 }
                 .hero__subtitle {
                     font-size: 20px;
+                }
+                .hero__button-container {
+                    gap: 5px;
+                    flex-direction: column;
+                    .hero__button {
+                        font-size: 15px;
+                    }
+
+                    .socail__button {
+                        font-size: 15px;
+                    }
                 }
             }
             .layout__right {
@@ -126,12 +137,24 @@
 @media screen and (max-width: 425px) {
     .hero {
         .layout {
+            flex-direction: column;
+            gap: 10px;
             .layout__left {
                 .hero__title {
                     font-size: 20px;
                 }
                 .hero__subtitle {
                     font-size: 15px;
+                }
+                .hero__button-container {
+                    gap: 5px;
+                    flex-direction: column;
+                    .hero__button {
+                        font-size: 10px;
+                    }
+                    .socail__button {
+                        font-size: 10px;
+                    }
                 }
             }
             .layout__right {
@@ -147,12 +170,24 @@
 @media screen and (max-width: 320px) {
     .hero {
         .layout {
+            flex-direction: column;
+            gap: 10px;
             .layout__left {
                 .hero__title {
                     font-size: 15px;
                 }
                 .hero__subtitle {
                     font-size: 10px;
+                }
+                .hero__button-container {
+                    gap: 5px;
+                    flex-direction: column;
+                    .hero__button {
+                        font-size: 10px;
+                    }
+                    .socail__button {
+                        font-size: 10px;
+                    }
                 }
             }
             .layout__right {
