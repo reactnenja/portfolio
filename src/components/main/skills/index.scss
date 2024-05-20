@@ -65,6 +65,15 @@
         }
         .skills__content {
             grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 0px 10px;
+        }
+
+        .skills__content__item {
+            width: 100%;
+            p {
+                font-size: 16px;
+            }
         }
     }
 }
@@ -76,6 +85,15 @@
         }
         .skills__content {
             grid-template-columns: repeat(1, 1fr);
+            gap: 10px;
+            padding: 0px 10px;
+        }
+
+        .skills__content__item {
+            width: 100%;
+            p {
+                font-size: 16px;
+            }
         }
     }
 }
@@ -87,6 +105,15 @@
         }
         .skills__content {
             grid-template-columns: repeat(1, 1fr);
+            gap: 10px;
+            padding: 0px 10px;
+        }
+
+        .skills__content__item {
+            width: 100%;
+            p {
+                font-size: 16px;
+            }
         }
     }
 }
