@@ -2,14 +2,15 @@
     display: block;
     width: 100%;
     height: auto;
-    background-color: hsla(177, 100%, 14%, 0.389);
+    background: #cd46f1;
+    background: linear-gradient(225deg, #cd46f1, #41b3bc);
     padding: 70px 0px;
     backdrop-filter: blur(15px);
     margin-bottom: 40px;
     .portfolio__title {
         text-align: left;
         font-size: 50px;
-        color: #000000;
+        color: #232323 !important;
         padding: 0px 50px;
         margin-bottom: 15px;
     }
@@ -39,7 +40,7 @@
         width: 420px;
         &:hover {
             cursor: pointer;
-            background: hsla(0, 0%, 0%, 0.803);
+            background: #232323;
             backdrop-filter: blur(45px);
             transform: scale(1.1);
         }

@@ -30,6 +30,7 @@ import {
 import { TbBrandRedux } from "react-icons/tb";
 import TypeIt from "typeit-react";
 import "./index.scss";
+
 const Skills = () => {
     return (
         <section className="skills" id="skills">
@@ -53,7 +54,7 @@ const Skills = () => {
                     }}
                 />
             </h2>
-            <p>Here are some of my skills</p>
+            <p className="title__text">Here are some of my skills</p>
             <div className="skills__content">
                 <div
                     className="skills__content__item"
@@ -103,10 +104,6 @@ const Skills = () => {
                     <p>JavaScript</p>
                 </div>
                 <div className="skills__content__item">
-                    <MdAnimation className="icons" />
-                    <p> Splidejs</p>
-                </div>
-                <div className="skills__content__item">
                     <FaReact className="icons" />
                     <p>React</p>
                 </div>
@@ -117,10 +114,6 @@ const Skills = () => {
                 <div className="skills__content__item">
                     <TbBrandRedux className="icons" />
                     <p>Redux Toolkit</p>
-                </div>
-                <div className="skills__content__item">
-                    <SiReactquery className="icons" />
-                    <p>TanStack Query</p>
                 </div>
                 <div className="skills__content__item">
                     <GiBearFace className="icons" />
@@ -147,14 +140,6 @@ const Skills = () => {
                     <p>Nextjs</p>
                 </div>
                 <div className="skills__content__item">
-                    <RiNextjsFill className="icons" />
-                    <p>Nextjs Auth</p>
-                </div>
-                <div className="skills__content__item">
-                    <SiPrisma className="icons" />
-                    <p>Prisma ORM</p>
-                </div>
-                <div className="skills__content__item">
                     <FaLinux className="icons" />
                     <p>Linux</p>
                 </div>
@@ -162,21 +147,40 @@ const Skills = () => {
                     <SiArchlinux className="icons" />
                     <p>Arch</p>
                 </div>
+            </div>
+            <p className="title__text">This is what I'm learning</p>
+            <div className="skills__content">
+                <div className="skills__content__item">
+                    <MdAnimation className="icons" />
+                    <p> Splidejs</p>{" "}
+                </div>
+                <div className="skills__content__item">
+                    <SiReactquery className="icons" />
+                    <p>TanStack Query</p>{" "}
+                </div>
+                <div className="skills__content__item">
+                    <RiNextjsFill className="icons" />
+                    <p>Nextjs Auth</p>{" "}
+                </div>{" "}
+                <div className="skills__content__item">
+                    <SiPrisma className="icons" />
+                    <p>Prisma ORM</p>{" "}
+                </div>{" "}
                 <div className="skills__content__item">
                     <SiMysql className="icons" />
-                    <p>MySql</p>
-                </div>
+                    <p>MySql</p>{" "}
+                </div>{" "}
                 <div className="skills__content__item">
                     <SiMongodb className="icons" />
-                    <p>MongoDB</p>
-                </div>
+                    <p>MongoDB</p>{" "}
+                </div>{" "}
                 <div className="skills__content__item">
                     <BiLogoPostgresql className="icons" />
-                    <p>PostgreSql</p>
-                </div>
+                    <p>PostgreSql</p>{" "}
+                </div>{" "}
                 <div className="skills__content__item">
                     <RiSupabaseFill className="icons" />
-                    <p>SupaBase</p>
+                    <p>SupaBase</p>{" "}
                 </div>
             </div>
         </section>

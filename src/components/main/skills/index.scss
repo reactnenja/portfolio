@@ -2,8 +2,9 @@
     margin-bottom: 40px;
     width: 100%;
     height: auto;
-    background-color: hsla(177, 100%, 14%, 0.389);
-    padding: 70px 0px;
+    background: #cd46f1;
+    background: linear-gradient(225deg, #cd46f1, #41b3bc);
+    padding: 170px 0px;
     backdrop-filter: blur(15px);
     padding: 25px 55px;
     gap: 20px;
@@ -19,8 +20,11 @@
     }
     .skills__content {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         gap: 30px;
+        margin-bottom: 30px;
+
         .skills__content__item {
             display: flex;
             flex-direction: column;

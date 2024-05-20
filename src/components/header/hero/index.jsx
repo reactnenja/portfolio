@@ -1,6 +1,12 @@
-import { BsTelegram, BsYoutube } from "react-icons/bs";
-import { CiLinkedin } from "react-icons/ci";
-import { FaGithub, FaInstagram } from "react-icons/fa";
+import React from "react";
+import {
+    FaArrowCircleDown,
+    FaGithubAlt,
+    FaInstagram,
+    FaTelegram,
+    FaYoutube,
+} from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa6";
 import TypeIt from "typeit-react";
 import Logo from "../../../assets/hero__logo.png";
 import "./index.scss";
@@ -8,15 +14,17 @@ const Hero = () => {
     return (
         <section className="hero">
             <div className="container">
-                <div className="hero__content">
-                    <div className="hero__title">
-                        <h1>
+                <div className="layout">
+                    <div className="layout__left">
+                        <h1 className="hero__title">
                             <TypeIt
                                 options={{
                                     strings: [
-                                        "My name is Ulugbek, I am 23 years old",
-                                        "I am a frontend developer",
-                                        "i love programming!",
+                                        "Hello, I'm Ulugbek",
+                                        "I am a Frontend Developer",
+                                        "I am a Frontend Developer",
+                                        "I am a Frontend Developer",
+                                        "I am a Frontend Developer",
                                     ],
                                     speed: 100,
                                     waitUntilVisible: true,
@@ -30,49 +38,53 @@ const Hero = () => {
                             />
                         </h1>
                         <p className="hero__subtitle">
-                            I am a frontend developer
+                            I am a Frontend Developer. I am happy to help you
+                            with any questions you might have. Feel free to
+                            contact me.
                         </p>
-                        <div className="socails">
-                            <a
-                                href="https://github.com/reactnenja"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <FaGithub />
+                        <div className="hero__button-container">
+                            <a href="#contact" className="hero__button">
+                                <span>
+                                    <FaArrowCircleDown />
+                                </span>
+                                <span>My Resume</span>
                             </a>
                             <a
-                                href="https://www.t.me/ulugbekeshnazarovuz"
-                                target="_blank"
-                                rel="noreferrer"
+                                href="https://t.me/ulugbekeshnazarovuz"
+                                className="socail__button"
                             >
-                                <BsTelegram />
+                                <FaTelegram />
                             </a>
                             <a
-                                href="https://www.youtube.com/ulugbekeshnazarovuz"
-                                target="_blank"
-                                rel="noreferrer"
+                                href="https://youtube.com/@ulugbekeshnazarovuz"
+                                className="socail__button"
                             >
-                                <BsYoutube />
+                                <FaYoutube />
                             </a>
                             <a
-                                href="https://www.linkedin.com/in/ulugbekeshnazarov/"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <CiLinkedin />
-                            </a>
-                            <a
-                                href="https://www.instagram.com/ulugbekeshnazarovuz"
-                                target="_blank"
-                                rel="noreferrer"
+                                href="https://instagram.com/ulugbekeshnazarovuz"
+                                className="socail__button"
                             >
                                 <FaInstagram />
                             </a>
+                            <a
+                                href="https://linkedin.com/ulugbekeshnazarovuz"
+                                className="socail__button"
+                            >
+                                <FaLinkedin />
+                            </a>
+                            <a
+                                href="https://github.com/reactnenja"
+                                className="socail__button"
+                            >
+                                <FaGithubAlt />
+                            </a>
                         </div>
                     </div>
-
-                    <div className="hero__content__image">
-                        <img src={Logo} alt="" />
+                    <div className="layout__right">
+                        <div className="hero__image">
+                            <img src={Logo} alt="my-logo" />
+                        </div>
                     </div>
                 </div>
             </div>
