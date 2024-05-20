@@ -121,6 +121,8 @@
         }
 
         .portfolio__content-card {
+            width: 100% !important;
+            padding: 0px 10px;
             .card__image {
                 width: 300px;
                 height: 200px;
@@ -129,10 +131,6 @@
 
         .portfolio__content {
             gap: 20px;
-        }
-
-        .portfolio__content-card {
-            width: 300px;
         }
 
         .card__links {
@@ -153,6 +151,8 @@
         }
 
         .portfolio__content-card {
+            padding: 0px 10px;
+            width: 100% !important;
             .card__image {
                 width: 200px;
                 height: 150px;
@@ -161,10 +161,6 @@
 
         .portfolio__content {
             gap: 10px;
-        }
-
-        .portfolio__content-card {
-            width: 200px;
         }
 
         .card__links {
@@ -177,6 +173,7 @@
 
 @media screen and (max-width: 320px) {
     .portfolio {
+        padding: 40px 0px;
         .portfolio__title {
             font-size: 20px;
         }
@@ -185,6 +182,8 @@
         }
 
         .portfolio__content-card {
+            padding: 0px 10px;
+            width: 100% !important;
             .card__image {
                 width: 150px;
                 height: 100px;
@@ -193,10 +192,6 @@
 
         .portfolio__content {
             gap: 5px;
-        }
-
-        .portfolio__content-card {
-            width: 150px;
         }
 
         .card__links {
