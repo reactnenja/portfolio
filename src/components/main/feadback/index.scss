@@ -49,3 +49,29 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .feadback {
+        .feadback__content {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .feadback {
+        .feadback__content {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    .feadback {
+        .feadback__content-header {
+            p {
+                padding: 10px;
+            }
+        }
+    }
+}
