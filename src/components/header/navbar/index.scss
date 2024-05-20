@@ -23,10 +23,6 @@
             }
         }
 
-        .burger {
-            display: none;
-        }
-
         .menu__links {
             ul {
                 display: flex;
@@ -66,23 +62,40 @@
                 }
             }
         }
-
-        .dark__mode {
-            cursor: pointer;
-            padding: 10px 10px;
+        .buttons {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #ff8906;
-            color: white;
-            border: 2px solid #ff8906;
-            border-radius: 6px;
-            transition: all 0.7s;
-            font-size: 24px;
-            &:hover {
-                background: transparent;
-                border-color: #ff8906;
-                color: #ff8906;
+            gap: 20px;
+            .burger {
+                display: none;
+                padding: 16px;
+                cursor: pointer;
+                .bar {
+                    display: block;
+                    width: 25px;
+                    height: 3px;
+                    margin: 5px auto;
+                    -webkit-transition: all 0.3s ease-in-out;
+                    transition: all 0.3s ease-in-out;
+                    background-color: #fff;
+                }
+            }
+            .dark__mode {
+                cursor: pointer;
+                padding: 10px 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #ff8906;
+                color: white;
+                border: 2px solid #ff8906;
+                border-radius: 6px;
+                transition: all 0.7s;
+                font-size: 24px;
+                &:hover {
+                    background: transparent;
+                    border-color: #ff8906;
+                    color: #ff8906;
+                }
             }
         }
     }
@@ -121,8 +134,10 @@
             .menu__links {
                 display: none;
             }
-            .burger {
-                display: block;
+            .buttons {
+                .burger {
+                    display: block;
+                }
             }
         }
     }
@@ -134,8 +149,10 @@
             .menu__links {
                 display: none;
             }
-            .burger {
-                display: block;
+            .buttons {
+                .burger {
+                    display: block;
+                }
             }
         }
     }
@@ -147,8 +164,10 @@
             .menu__links {
                 display: none;
             }
-            .burger {
-                display: block;
+            .buttons {
+                .burger {
+                    display: block;
+                }
             }
         }
     }

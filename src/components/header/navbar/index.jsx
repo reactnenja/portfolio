@@ -51,9 +51,7 @@ const Navbar = () => {
                     <a href="#" className="logo__link">
                         <img src={Logos} className="logo" alt="logo" />
                     </a>
-                    <button onClick={handleBurger} className="burger">
-                        {open ? <IoMenu /> : <IoClose />}
-                    </button>
+
                     <div className="menu__links">
                         <ul>
                             <li>
@@ -83,13 +81,18 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    <button className="dark__mode" onClick={handleDark}>
-                        {isDark ? (
-                            <MdOutlineLightMode />
-                        ) : (
-                            <MdOutlineDarkMode />
-                        )}
-                    </button>
+                    <div className="buttons">
+                        <button onClick={handleBurger} className="burger">
+                            {open ? <IoMenu /> : <IoClose />}
+                        </button>
+                        <button className="dark__mode" onClick={handleDark}>
+                            {isDark ? (
+                                <MdOutlineLightMode />
+                            ) : (
+                                <MdOutlineDarkMode />
+                            )}
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
