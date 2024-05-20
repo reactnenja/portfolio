@@ -54,36 +54,34 @@ const Navbar = () => {
                     <button onClick={handleBurger} className="burger">
                         {open ? <IoMenu /> : <IoClose />}
                     </button>
-                    <div className="menu">
-                        <div className="menu__links">
-                            <ul>
-                                <li>
-                                    <a href="#hero" className="nav__link">
-                                        Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#portfolio" className="nav__link">
-                                        Portfolio
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#skills" className="nav__link">
-                                        Skills
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#about" className="nav__link">
-                                        About
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#contact" className="nav__link">
-                                        Contact
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div className="menu__links">
+                        <ul>
+                            <li>
+                                <a href="#hero" className="nav__link">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#portfolio" className="nav__link">
+                                    Portfolio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#skills" className="nav__link">
+                                    Skills
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#about" className="nav__link">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#contact" className="nav__link">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <button className="dark__mode" onClick={handleDark}>
                         {isDark ? (

@@ -27,43 +27,41 @@
             display: none;
         }
 
-        .menu {
-            .menu__links {
-                ul {
-                    display: flex;
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
-                    display: flex;
-                    gap: 25px;
-                    li {
-                        .nav__link {
-                            display: inline-block;
-                            color: #fff;
-                            text-decoration: none;
-                            padding: 0px 10px;
-                            font-size: 20px;
-                            font-weight: 500;
-                            text-align: left;
-                            transition: all 0.7s;
-                            &:hover {
-                                color: #ff8906;
-                            }
+        .menu__links {
+            ul {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                gap: 25px;
+                li {
+                    .nav__link {
+                        display: inline-block;
+                        color: #fff;
+                        text-decoration: none;
+                        padding: 0px 10px;
+                        font-size: 20px;
+                        font-weight: 500;
+                        text-align: left;
+                        transition: all 0.7s;
+                        &:hover {
+                            color: #ff8906;
                         }
+                    }
 
-                        &::after {
-                            content: "";
-                            display: block;
-                            width: 0;
-                            height: 2px;
-                            background: #ff8906;
-                            transition: width 0.3s;
-                        }
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 0;
+                        height: 2px;
+                        background: #ff8906;
+                        transition: width 0.3s;
+                    }
 
-                        &:hover::after {
-                            width: 100%;
-                            //transition: width .3s;
-                        }
+                    &:hover::after {
+                        width: 100%;
+                        //transition: width .3s;
                     }
                 }
             }
@@ -112,6 +110,45 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        .navigation {
+            .menu__links {
+                display: none;
+            }
+            .burger {
+                display: block;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .navbar {
+        .navigation {
+            .menu__links {
+                display: none;
+            }
+            .burger {
+                display: block;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navbar {
+        .navigation {
+            .menu__links {
+                display: none;
+            }
+            .burger {
+                display: block;
             }
         }
     }
