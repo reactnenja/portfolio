@@ -7,12 +7,9 @@ const Navbar = () => {
 
     const handleNavbars = () => {
         setActive(!active);
-
-        if (active) {
-            document
-                .querySelector(".navbar__menu-mobile")
-                .classList.toggle("active");
-        }
+    };
+    const closeMobileMenu = () => {
+        setActive(false);
     };
     return (
         <nav className="navbar">
@@ -48,23 +45,34 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div className="navbar__menu-mobile">
+                <div
+                    className={`navbar__menu-mobile ${active ? "active" : ""}`}
+                >
                     <ul className="navbar__menu-mobile__list">
                         <li className="navbar__menu-mobile__list-item">
-                            <a href="#home">Home</a>
+                            <a href="#home" onClick={closeMobileMenu}>
+                                Home
+                            </a>
                         </li>
                         <li className="navbar__menu-mobile__list-item">
-                            <a href="#skills">Skills</a>
+                            <a href="#skills" onClick={closeMobileMenu}>
+                                Skills
+                            </a>
                         </li>
                         <li className="navbar__menu-mobile__list-item">
-                            <a href="#portfolio">Portfolio</a>
-                        </li>
-
-                        <li className="navbar__menu-mobile__list-item">
-                            <a href="#about">About</a>
+                            <a href="#portfolio" onClick={closeMobileMenu}>
+                                Portfolio
+                            </a>
                         </li>
                         <li className="navbar__menu-mobile__list-item">
-                            <a href="#contact">Contact</a>
+                            <a href="#about" onClick={closeMobileMenu}>
+                                About
+                            </a>
+                        </li>
+                        <li className="navbar__menu-mobile__list-item">
+                            <a href="#contact" onClick={closeMobileMenu}>
+                                Contact
+                            </a>
                         </li>
                     </ul>
                 </div>
