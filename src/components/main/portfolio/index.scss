@@ -1,205 +1,183 @@
 .portfolio {
     display: block;
     width: 100%;
-    height: auto;
-    background: #cd46f1;
-    background: linear-gradient(225deg, #cd46f1, #41b3bc);
+    background-color: #ffffff;
     padding: 70px 0px;
     backdrop-filter: blur(15px);
-    margin-bottom: 40px;
-    .portfolio__title {
-        text-align: left;
+    height: auto;
+    overflow: hidden;
+
+    h1 {
         font-size: 50px;
-        color: #232323 !important;
-        padding: 0px 50px;
+        color: #000000;
         margin-bottom: 15px;
     }
 
-    .portfolio__subtitle {
-        text-align: left;
-        font-size: 30px;
-        color: #ffffff;
-        padding: 0px 50px;
-        margin-bottom: 30px;
-    }
-
-    .portfolio__content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-    }
-
-    .portfolio__content-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         justify-content: space-between;
-        border-radius: 20px;
-        transition: all 0.7s;
-        width: 420px;
-        &:hover {
-            cursor: pointer;
-            background: #232323;
-            backdrop-filter: blur(45px);
-            transform: scale(1.1);
-        }
-        .card__image {
-            width: 420px;
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 50px;
-            color: aliceblue;
-            border-radius: 20px;
-            background: hsla(0, 5%, 78%, 0.303);
-            transition: all 0.7s;
-            backdrop-filter: blur(1px);
-            &:hover {
-                cursor: pointer;
-                background: hsla(0, 0%, 0%, 0.803);
-                backdrop-filter: blur(45px);
-                transform: scale(0.9);
-                color: #ff8906;
-            }
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: fill;
-                border-radius: 20px;
-            }
-        }
-        .card__links {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            padding: 35px 10px;
+        align-items: center;
+        gap: 40px;
 
-            .cool-link {
-                display: inline-block;
-                color: #ffffff;
-                text-decoration: none;
-                padding: 0px 10px;
-                font-size: 20px;
-                font-weight: 500;
-                transition: all 0.7s;
-                &:hover {
-                    color: #ff8906;
-                }
-                span {
-                    margin-right: 10px;
+        &-items {
+            display: block;
+            border-radius: 10px;
+            padding: 20px;
+            gap: 10px;
+
+            .header {
+                width: 100%;
+                height: 300px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                 }
             }
 
-            .cool-link::after {
-                content: "";
-                display: block;
-                width: 0;
-                height: 2px;
-                background: #ff8906;
-                transition: width 0.3s;
-            }
-
-            .cool-link:hover::after {
+            .body {
                 width: 100%;
-                //transition: width .3s;
+                height: auto;
+
+                h3 {
+                    font-size: 30px;
+                    color: #000000;
+                    margin-bottom: 15px;
+                }
+
+                p {
+                    font-size: 18px;
+                    color: #000000;
+                    margin-bottom: 15px;
+                }
+
+                &__links {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 40px;
+
+                    a {
+                        font-size: 18px;
+                        color: #000000;
+                        text-decoration: none;
+                        transition: all 0.7s;
+                        width: 170px;
+                        padding: 15px 18px;
+                        border-radius: 5px;
+                        background: #000000;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        color: #ffffff;
+                        transition: all 0.7s;
+
+                        &:hover {
+                            background-color: #41b3bc;
+                            color: #ffffff;
+                            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+                            transform: scale(1.1);
+                        }
+                    }
+                }
             }
         }
     }
 }
-
-// ==============================================  Media Query ==============================================//
 
 @media screen and (max-width: 768px) {
     .portfolio {
-        .portfolio__title {
-            font-size: 40px;
-        }
-        .portfolio__subtitle {
-            font-size: 25px;
+        padding: 50px 0px; // Paddingni cheklang
+
+        h1 {
+            font-size: 30px;
         }
 
-        .portfolio__content-card {
-            width: 100% !important;
-            padding: 0px 10px;
-            .card__image {
-                width: 300px;
-                height: 200px;
-            }
-        }
-
-        .portfolio__content {
+        &__body {
+            grid-template-columns: repeat(1, 1fr);
             gap: 20px;
-        }
 
-        .card__links {
-            .cool-link {
-                font-size: 15px;
+            &-items {
+                width: 100%;
+                padding: 10px;
+
+                .header {
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .body {
+                    h3 {
+                        font-size: 24px;
+                    }
+
+                    p {
+                        font-size: 16px;
+                    }
+
+                    &__links {
+                        gap: 20px;
+
+                        a {
+                            font-size: 16px;
+                            width: 150px;
+                            padding: 10px 12px;
+                        }
+                    }
+                }
             }
         }
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 480px) {
     .portfolio {
-        .portfolio__title {
+        padding: 30px 0px; // Paddingni yana cheklang
+
+        h1 {
             font-size: 25px;
         }
-        .portfolio__subtitle {
-            font-size: 20px;
-        }
 
-        .portfolio__content-card {
-            padding: 0px 10px;
-            width: 100% !important;
-            .card__image {
-                width: 200px;
-                height: 150px;
-            }
-        }
-
-        .portfolio__content {
+        &__body {
             gap: 10px;
-        }
 
-        .card__links {
-            .cool-link {
-                font-size: 10px;
+            &-items {
+                padding: 10px 10px;
+
+                .header {
+                    height: 150px;
+                }
+
+                .body {
+                    h3 {
+                        font-size: 20px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                    }
+
+                    &__links {
+                        gap: 10px;
+
+                        a {
+                            font-size: 14px;
+                            width: 130px;
+                            padding: 8px 10px;
+                        }
+                    }
+                }
             }
         }
     }
 }
-
-@media screen and (max-width: 320px) {
-    .portfolio {
-        padding: 40px 0px;
-        .portfolio__title {
-            font-size: 20px;
-        }
-        .portfolio__subtitle {
-            font-size: 15px;
-        }
-
-        .portfolio__content-card {
-            padding: 0px 10px;
-            width: 100% !important;
-            .card__image {
-                width: 150px;
-                height: 100px;
-            }
-        }
-
-        .portfolio__content {
-            gap: 5px;
-        }
-
-        .card__links {
-            .cool-link {
-                font-size: 10px;
-            }
-        }
-    }
-}
-
-// ==============================================  Media Query ==============================================//
