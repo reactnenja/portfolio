@@ -1,12 +1,14 @@
+import React from "react";
+import Footer from "./components/footer";
 import Header from "./components/header";
 import Main from "./components/main";
-import "./index.scss";
 const App = () => {
     return (
-        <>
+        <div>
             <Header />
             <Main />
-        </>
+            <Footer />
+        </div>
     );
 };
 

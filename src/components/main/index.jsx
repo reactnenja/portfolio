@@ -6,10 +6,10 @@ import Skills from "./skills";
 
 const Main = () => {
     return (
-        <main>
-            <Skills />
+        <main className="w-full h-auto bg-gradient-to-r from-emerald-400 to-cyan-400">
             <Portfolio />
             <About />
+            <Skills />
             <Contact />
         </main>
     );
