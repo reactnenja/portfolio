@@ -44,7 +44,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="h-auto py-[60px] bg-gray-100">
+        <div className="h-auto py-[60px] bg-gray-100" id="contact">
             <div className="container mx-auto p-5">
                 <div className="flex flex-col items-center ">
                     <h2 className="text-5xl mb-5 py-12 font-extrabold">

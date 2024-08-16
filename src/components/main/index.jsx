@@ -2,6 +2,7 @@ import React from "react";
 import About from "./about";
 import Contact from "./contact";
 import Portfolio from "./portfolio";
+import Pricing from "./pricing";
 import Skills from "./skills";
 
 const Main = () => {
@@ -9,6 +10,7 @@ const Main = () => {
         <main className="w-full h-auto bg-gradient-to-r from-emerald-400 to-cyan-400">
             <Portfolio />
             <About />
+            <Pricing />
             <Skills />
             <Contact />
         </main>
