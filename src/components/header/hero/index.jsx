@@ -1,33 +1,34 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { FaArrowRight, FaGithub, FaLinkedin } from "react-icons/fa";
-import HeroImages from "../../../assets/hero-dark.png";
+import HeroImage from "../../../assets/hero-dark.png";
+
 const Hero = () => {
     return (
         <section
             id="hero"
-            className="p-[190px] h-auto w-full bg-gray-900 text-white flex items-center"
+            className="relative min-h-screen  w-full bg-gray-900 text-white flex items-center overflow-hidden py-24 px-4 sm:px-6 lg:px-8"
         >
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="container mx-auto">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
                     <motion.div
-                        className="md:w-1/2 text-center md:text-left mb-12 md:mb-0"
+                        className="lg:w-1/2 text-center lg:text-left"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
                         <motion.h1
-                            className="text-4xl md:text-6xl font-bold mb-6"
+                            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.3 }}
                         >
                             Hi, I'm{" "}
-                            <span className="text-indigo-400">
+                            <span className="text-indigo-400 inline-block">
                                 Ulugbek Eshnazarov
                             </span>
                         </motion.h1>
                         <motion.p
-                            className="text-lg md:text-xl mb-8 text-gray-300"
+                            className="text-lg sm:text-xl mb-8 text-gray-300 max-w-2xl mx-auto lg:mx-0"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.2 }}
@@ -36,7 +37,7 @@ const Hero = () => {
                             creating seamless web experiences with cutting-edge
                             technologies.
                         </motion.p>
-                        <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                        <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                             <motion.a
                                 href="#projects"
                                 className="group bg-indigo-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-indigo-700 transition duration-300 flex items-center justify-center"
@@ -56,13 +57,14 @@ const Hero = () => {
                                 <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </motion.a>
                         </div>
-                        <div className="mt-8 flex justify-center md:justify-start space-x-4">
+                        <div className="mt-8 flex justify-center lg:justify-start space-x-4">
                             <motion.a
                                 href="https://github.com/yourusername"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.2, rotate: 5 }}
                                 whileTap={{ scale: 0.9 }}
+                                className="bg-gray-800 p-3 rounded-full"
                             >
                                 <FaGithub className="text-gray-400 hover:text-white transition-colors text-2xl" />
                             </motion.a>
@@ -72,6 +74,7 @@ const Hero = () => {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.2, rotate: -5 }}
                                 whileTap={{ scale: 0.9 }}
+                                className="bg-gray-800 p-3 rounded-full"
                             >
                                 <FaLinkedin className="text-gray-400 hover:text-white transition-colors text-2xl" />
                             </motion.a>
@@ -79,15 +82,15 @@ const Hero = () => {
                     </motion.div>
 
                     <motion.div
-                        className="md:w-1/2 flex justify-center"
+                        className="lg:w-1/2 flex justify-center"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1.2 }}
                     >
                         <img
-                            src={HeroImages}
+                            src={HeroImage}
                             alt="Profile"
-                            className="w-full rounded-md object-cover shadow-2xl border-4 border-indigo-400"
+                            className="w-full max-w-md rounded-lg object-cover shadow-2xl border-4 border-indigo-400"
                         />
                     </motion.div>
                 </div>
