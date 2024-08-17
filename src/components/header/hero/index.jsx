@@ -122,14 +122,14 @@ const Hero = () => {
                     <motion.div
                         className="lg:w-1/2 h-auto flex justify-center items-center"
                         initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1.2 }}
+                        animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1.2 }}
                     >
                         <motion.img
                             src={HeroImage}
                             alt="Profile"
                             className="w-full h-auto max-w-xl object-cover shadow-2xl border-4 border-indigo-400 rounded-lg"
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1 }}
                             transition={{ duration: 0.3 }}
                         />
                     </motion.div>

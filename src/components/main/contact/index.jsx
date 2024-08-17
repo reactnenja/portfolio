@@ -20,6 +20,9 @@ const Card = ({ title, description, icon }) => {
 };
 
 const Contact = () => {
+    const token = "7103836301:AAEq2lPNXG8qpC9DOpS-lAr-Vc7VX67ZE3U";
+    const chat_id = "7103836301";
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -36,11 +39,61 @@ const Contact = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const sendToTelegram = async (data) => {
+        const text = `
+Yangi xabar:
+Ism: ${data.name}
+Email: ${data.email}
+Telegram: ${data.telegram}
+Xabar: ${data.message}
+Ish taklifi: ${data.jobInterest ? "Ha" : `Yo'q`}
+        `;
+
+        const url = `https://api.telegram.org/bot${token}/sendMessage`;
+        const params = {
+            chat_id: chat_id,
+            text: text,
+        };
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(params),
+            });
+
+            if (!response.ok) {
+                throw new Error("Telegram botga yuborishda xatolik yuz berdi");
+            }
+
+            return true;
+        } catch (error) {
+            console.error("Xatolik:", error);
+            return false;
+        }
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        toast.success("Xabar yuborildi!");
-        // Form ma'lumotlarini yuborish logikasini shu yerda qo'shishingiz mumkin
-        console.log(formData);
+
+        const success = await sendToTelegram(formData);
+
+        if (success) {
+            toast.success("Xabar muvaffaqiyatli yuborildi!");
+            setFormData({
+                name: "",
+                email: "",
+                message: "",
+                telegram: "",
+                jobInterest: false,
+            });
+        } else {
+            toast.error(
+                "Xabar yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring."
+            );
+        }
     };
 
     return (

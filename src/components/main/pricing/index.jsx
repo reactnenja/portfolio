@@ -100,8 +100,8 @@ const Pricing = () => {
         e.preventDefault();
 
         // Form ma'lumotlarini Telegram botga yuborish
-        const token = "YOUR_TELEGRAM_BOT_TOKEN"; // Bu yerda o'zingizning bot tokeningizni kiriting
-        const chat_id = "YOUR_CHAT_ID"; // Bu yerda chat ID ni kiriting
+        const token = "7103836301:AAEq2lPNXG8qpC9DOpS-lAr-Vc7VX67ZE3U"; // Bu yerda o'zingizning bot tokeningizni kiriting
+        const chat_id = "7103836301"; // Bu yerda chat ID ni kiriting
 
         const message = `
             Yangi buyurtma:
