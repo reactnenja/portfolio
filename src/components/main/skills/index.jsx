@@ -1,16 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Marquee from "react-fast-marquee";
-import {
-    FaCss3Alt,
-    FaHtml5,
-    FaJs,
-    FaNodeJs,
-    FaPython,
-    FaReact,
-    FaRust,
-} from "react-icons/fa";
-import { FaGolang } from "react-icons/fa6";
+import { FaCss3Alt, FaHtml5, FaJs, FaNodeJs, FaReact } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import {
     SiAxios,
@@ -38,15 +29,12 @@ const skills = [
     { id: 9, name: "React", icon: <FaReact size={50} /> },
     { id: 10, name: "Redux", icon: <SiRedux size={50} /> },
     { id: 11, name: "Typescript", icon: <SiTypescript size={50} /> },
-    { id: 12, name: "Python", icon: <FaPython size={50} /> },
-    { id: 13, name: "Rust", icon: <FaRust size={50} /> },
-    { id: 14, name: "Golang", icon: <FaGolang size={50} /> },
-    { id: 15, name: "Linux", icon: <SiLinux size={50} /> },
-    { id: 16, name: "MacOs", icon: <SiMacos size={50} /> },
-    { id: 17, name: "Windows", icon: <SiWindows11 size={50} /> },
-    { id: 18, name: "Axios", icon: <SiAxios size={50} /> },
-    { id: 19, name: "ReactQuery", icon: <SiReactquery size={50} /> },
-    { id: 20, name: "Formik", icon: <SiFormik size={50} /> },
+    { id: 12, name: "Linux", icon: <SiLinux size={50} /> },
+    { id: 13, name: "MacOs", icon: <SiMacos size={50} /> },
+    { id: 14, name: "Windows", icon: <SiWindows11 size={50} /> },
+    { id: 15, name: "Axios", icon: <SiAxios size={50} /> },
+    { id: 16, name: "ReactQuery", icon: <SiReactquery size={50} /> },
+    { id: 17, name: "Formik", icon: <SiFormik size={50} /> },
     // Qo'shimcha skilllar qo'shishingiz mumkin
 ];
 

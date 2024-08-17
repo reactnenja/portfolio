@@ -52,7 +52,7 @@ const Hero = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.2 }}
                         >
-                            A passionate Full-Stack Developer specializing in
+                            A passionate Frontend Developer specializing in
                             creating seamless web experiences with cutting-edge
                             technologies.
                         </motion.p>
