@@ -2,6 +2,8 @@ import axios from "axios";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { FaCheckCircle, FaTimes, FaUpload } from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -100,8 +102,8 @@ const Pricing = () => {
         e.preventDefault();
 
         // Form ma'lumotlarini Telegram botga yuborish
-        const token = "7103836301:AAEq2lPNXG8qpC9DOpS-lAr-Vc7VX67ZE3U"; // Bu yerda o'zingizning bot tokeningizni kiriting
-        const chat_id = "7103836301"; // Bu yerda chat ID ni kiriting
+        const token = "7103836301:AAEq2lPNXG8qpC9DOpS-lAr-Vc7VX67ZE3U";
+        const chat_id = "7103836301";
 
         const message = `
             Yangi buyurtma:
@@ -122,12 +124,23 @@ const Pricing = () => {
                     text: message,
                 }
             );
+            toast.success("Buyurtma muvaffaqiyatli yuborildi!");
             console.log("Buyurtma yuborildi.");
+            setIsModalOpen(false);
+            // Reset form data
+            setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                projectType: "",
+                platform: "",
+                additionalInfo: "",
+                design: null,
+            });
         } catch (error) {
+            toast.error("Xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring.");
             console.error("Xatolik yuz berdi:", error);
         }
-
-        setIsModalOpen(false);
     };
 
     const plans = [
@@ -207,6 +220,7 @@ const Pricing = () => {
 
     return (
         <div className="p-2">
+            <ToastContainer />
             <section className="flex flex-col items-center min-h-auto px-4 py-24 bg-gray-100">
                 <motion.div
                     className="mb-16"
