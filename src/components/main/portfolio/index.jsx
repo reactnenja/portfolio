@@ -25,7 +25,7 @@ const Portfolio = () => {
     return (
         <section
             id="portfolio"
-            className="bg-gray-100 dark:bg-gray-900 py-16 px-4 sm:px-6 lg:px-8"
+            className="bg-gray-100 dark:bg-gray-900 py-40 px-4 sm:px-6 lg:px-8"
         >
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-center text-gray-900 dark:text-white mb-8">
@@ -66,7 +66,7 @@ const Portfolio = () => {
                     {filteredProjects.map((project) => (
                         <motion.div
                             key={project.id}
-                            className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
+                            className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-lg overflow-hidden"
                             whileHover={{ y: -5 }}
                             whileTap={{ scale: 0.95 }}
                         >

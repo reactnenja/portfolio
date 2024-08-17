@@ -1,5 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
@@ -10,9 +9,14 @@ const Navbar = () => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
+
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    useEffect(() => {
+        document.body.style.overflow = isOpen ? "hidden" : "unset";
+    }, [isOpen]);
 
     const navItems = [
         { name: "home", href: "#hero" },
@@ -22,6 +26,10 @@ const Navbar = () => {
         { name: "contact", href: "#contact" },
     ];
 
+    const handleNavItemClick = useCallback(() => {
+        setIsOpen(false);
+    }, []);
+
     return (
         <nav
             className={`fixed top-0 w-full z-50 py-3 transition-all duration-300 ${
@@ -30,72 +38,84 @@ const Navbar = () => {
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
-                    <motion.a
+                    <a
                         href="/"
-                        className="border-white p-2 border-2 rounded-md"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        className="border-white p-2 border-2 rounded-md transition-transform duration-300 hover:scale-105 active:scale-95"
                     >
                         <span className="text-white text-xl font-bold">
                             Engineer
                         </span>
-                    </motion.a>
+                    </a>
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex space-x-12 ">
+                    <div className="hidden md:flex space-x-12">
                         {navItems.map((item) => (
-                            <motion.a
+                            <a
                                 key={item.name}
                                 href={item.href}
-                                className="text-white font-medium text-lg capitalize hover:text-indigo-400 transition-colors duration-300"
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.95 }}
+                                className="text-white font-medium text-lg capitalize hover:text-indigo-400 transition-colors duration-300 hover:scale-110 active:scale-95"
                             >
                                 {item.name}
-                            </motion.a>
+                            </a>
                         ))}
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <motion.button
-                        className="md:hidden text-white p-2"
-                        onClick={() => setIsOpen(!isOpen)}
-                        whileTap={{ scale: 0.9 }}
-                        aria-label="Toggle menu"
+                    <button
+                        className="md:hidden text-white p-2 transition-transform duration-300 active:scale-90"
+                        onClick={() => setIsOpen(true)}
+                        aria-label="Open menu"
                     >
-                        {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-                    </motion.button>
+                        <FaBars size={24} />
+                    </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        className="md:hidden fixed inset-0 top-24 bg-black/95 z-40 flex items-center justify-center"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
+            {/* Mobile Side Drawer */}
+            <div
+                className={`fixed inset-y-0 right-0 z-50 w-[300px] bg-black shadow-lg transform ${
+                    isOpen ? "translate-x-0" : "translate-x-full"
+                } transition-transform duration-300 ease-in-out`}
+            >
+                <div className="flex justify-between items-center p-4 border-b border-gray-600">
+                    <a
+                        href="/"
+                        className="border-white p-2 border-2 rounded-md transition-transform duration-300 hover:scale-105 active:scale-95"
                     >
-                        <ul className="flex flex-col items-center space-y-6">
-                            {navItems.map((item) => (
-                                <li key={item.name}>
-                                    <motion.a
-                                        href={item.href}
-                                        className="text-white font-medium text-2xl capitalize hover:text-indigo-400 transition-colors duration-300"
-                                        onClick={() => setIsOpen(false)}
-                                        whileHover={{ scale: 1.1 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        {item.name}
-                                    </motion.a>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                        <span className="text-white text-xl font-bold">
+                            Engineer
+                        </span>
+                    </a>
+                    <button
+                        onClick={() => setIsOpen(false)}
+                        className="text-white p-2 transition-transform duration-300 active:scale-90"
+                        aria-label="Close menu"
+                    >
+                        <FaTimes size={24} />
+                    </button>
+                </div>
+                <ul className="flex flex-col items-start space-y-6 p-4">
+                    {navItems.map((item) => (
+                        <li key={item.name} className="w-full">
+                            <a
+                                href={item.href}
+                                className="block w-full text-white font-medium text-xl capitalize hover:text-indigo-400 transition-all duration-300 hover:pl-2"
+                                onClick={handleNavItemClick}
+                            >
+                                {item.name}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            {/* Overlay */}
+            {isOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                    onClick={() => setIsOpen(false)}
+                ></div>
+            )}
         </nav>
     );
 };

@@ -1,13 +1,27 @@
-import { motion } from "framer-motion";
-import React from "react";
-import { FaCheckCircle } from "react-icons/fa";
+import axios from "axios";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useState } from "react";
+import { FaCheckCircle, FaTimes, FaUpload } from "react-icons/fa";
 
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-const PricingCard = ({ title, price, features, duration, highlight }) => {
+const modalVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+    exit: { opacity: 0, scale: 0.8, transition: { duration: 0.3 } },
+};
+
+const PricingCard = ({
+    title,
+    price,
+    features,
+    duration,
+    highlight,
+    onOrder,
+}) => {
     return (
         <motion.div
             className={`${
@@ -42,6 +56,7 @@ const PricingCard = ({ title, price, features, duration, highlight }) => {
                 ))}
             </ul>
             <button
+                onClick={() => onOrder(title)}
                 className={`px-6 py-3 rounded-lg font-semibold transition duration-300 ${
                     highlight
                         ? "bg-white text-blue-600 hover:bg-gray-100"
@@ -55,6 +70,66 @@ const PricingCard = ({ title, price, features, duration, highlight }) => {
 };
 
 const Pricing = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedPlan, setSelectedPlan] = useState("");
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        projectType: "",
+        platform: "",
+        additionalInfo: "",
+        design: null,
+    });
+
+    const handleOrder = (plan) => {
+        setSelectedPlan(plan);
+        setIsModalOpen(true);
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleFileChange = (e) => {
+        setFormData((prev) => ({ ...prev, design: e.target.files[0] }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // Form ma'lumotlarini Telegram botga yuborish
+        const token = "YOUR_TELEGRAM_BOT_TOKEN"; // Bu yerda o'zingizning bot tokeningizni kiriting
+        const chat_id = "YOUR_CHAT_ID"; // Bu yerda chat ID ni kiriting
+
+        const message = `
+            Yangi buyurtma:
+            Ism: ${formData.name}
+            Email: ${formData.email}
+            Telefon: ${formData.phone}
+            Loyihaning turi: ${formData.projectType}
+            Platforma: ${formData.platform}
+            Qo'shimcha ma'lumot: ${formData.additionalInfo}
+            Tanlangan reja: ${selectedPlan}
+        `;
+
+        try {
+            await axios.post(
+                `https://api.telegram.org/bot${token}/sendMessage`,
+                {
+                    chat_id: chat_id,
+                    text: message,
+                }
+            );
+            console.log("Buyurtma yuborildi.");
+        } catch (error) {
+            console.error("Xatolik yuz berdi:", error);
+        }
+
+        setIsModalOpen(false);
+    };
+
     const plans = [
         {
             title: "Oylik Paket",
@@ -132,14 +207,14 @@ const Pricing = () => {
 
     return (
         <div className="p-2">
-            <section className="flex flex-col items-center min-h-screen px-4 py-24 bg-gray-100">
+            <section className="flex flex-col items-center min-h-auto px-4 py-24 bg-gray-100">
                 <motion.div
                     className="mb-16"
                     variants={cardVariants}
                     initial="hidden"
                     animate="visible"
                 >
-                    <h2 className="text-3xl font-bold text-center mb-8">
+                    <h2 className="text-5xl font-bold text-center mb-8">
                         Narxlar
                     </h2>
                     <p className="text-center text-gray-600 mb-6">
@@ -150,11 +225,8 @@ const Pricing = () => {
                     {plans.map((plan, index) => (
                         <PricingCard
                             key={index}
-                            title={plan.title}
-                            price={plan.price}
-                            features={plan.features}
-                            duration={plan.duration}
-                            highlight={plan.highlight}
+                            {...plan}
+                            onOrder={handleOrder}
                         />
                     ))}
                 </div>
@@ -166,16 +238,150 @@ const Pricing = () => {
                         {extras.map((extra, index) => (
                             <PricingCard
                                 key={index}
-                                title={extra.title}
-                                price={extra.price}
-                                features={extra.features}
-                                duration={extra.duration}
-                                highlight={extra.highlight}
+                                {...extra}
+                                onOrder={handleOrder}
                             />
                         ))}
                     </div>
                 </div>
             </section>
+
+            <AnimatePresence>
+                {isModalOpen && (
+                    <motion.div
+                        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        variants={modalVariants}
+                    >
+                        <div className="bg-white rounded-lg p-8 max-w-md w-full max-h-screen overflow-y-auto">
+                            <div className="flex justify-between items-center mb-6">
+                                <h3 className="text-2xl font-bold">
+                                    Buyurtma berish
+                                </h3>
+                                <button
+                                    onClick={() => setIsModalOpen(false)}
+                                    className="text-gray-500 hover:text-gray-700"
+                                >
+                                    <FaTimes />
+                                </button>
+                            </div>
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                <div>
+                                    <label className="block font-semibold mb-2">
+                                        Ism
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleInputChange}
+                                        required
+                                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block font-semibold mb-2">
+                                        Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        required
+                                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block font-semibold mb-2">
+                                        Telefon
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleInputChange}
+                                        required
+                                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block font-semibold mb-2">
+                                        Loyihaning turi
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="projectType"
+                                        value={formData.projectType}
+                                        onChange={handleInputChange}
+                                        required
+                                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block font-semibold mb-2">
+                                        Platforma
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="platform"
+                                        value={formData.platform}
+                                        onChange={handleInputChange}
+                                        required
+                                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block font-semibold mb-2">
+                                        Qo'shimcha ma'lumot
+                                    </label>
+                                    <textarea
+                                        name="additionalInfo"
+                                        value={formData.additionalInfo}
+                                        onChange={handleInputChange}
+                                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                                    ></textarea>
+                                </div>
+                                <div>
+                                    <label className="block mb-2">
+                                        Dizayn yuklash
+                                    </label>
+                                    <div className="flex items-center justify-center w-full">
+                                        <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                <FaUpload className="w-8 h-8 mb-4 text-gray-500" />
+                                                <p className="mb-2 text-sm text-gray-500">
+                                                    <span className="font-semibold">
+                                                        Faylni tanlang
+                                                    </span>{" "}
+                                                    yoki bu yerga tashlang
+                                                </p>
+                                                <p className="text-xs text-gray-500">
+                                                    PNG, JPG yoki PDF (MAX. 5MB)
+                                                </p>
+                                            </div>
+                                            <input
+                                                type="file"
+                                                className="hidden"
+                                                onChange={handleFileChange}
+                                                accept=".png,.jpg,.jpeg,.pdf"
+                                            />
+                                        </label>
+                                    </div>
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold transition duration-300 hover:bg-blue-700"
+                                >
+                                    Buyurtma yuborish
+                                </button>
+                            </form>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
