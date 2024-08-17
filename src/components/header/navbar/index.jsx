@@ -73,7 +73,7 @@ const Navbar = () => {
 
             {/* Mobile Side Drawer */}
             <div
-                className={`fixed inset-y-0 right-0 z-50 w-[300px]  shadow-lg transform ${
+                className={`fixed inset-y-0 right-0 h-screen z-50 w-[300px] bg-black transform ${
                     isOpen ? "translate-x-0" : "translate-x-full bg-black"
                 } transition-transform duration-300 ease-in-out`}
             >
